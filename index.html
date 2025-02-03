@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniGuide - Sign In</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                
+                <h1>UniGUIDE</h1>
+            </div>
+            <h2>  Your Journey Starts Here</h2>
+            
+            <form>
+                <div class="input-group">
+                    
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+
+                <div class="input-group">
+                    
+                    <input type="password" placeholder="Password" required>
+                    
+
+                </div>
+
+                <button type="submit">
+                    Sign In
+                    
+                </button>
+            </form>
+
+            <p class="toggle-text">
+                Don't have an account? <a href="#" onclick="toggleForm(event)">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm(e) {
+            e.preventDefault();
+            const form = document.querySelector('.form-container');
+            form.classList.add('animate-out');
+            
+            setTimeout(() => {
+                const title = document.querySelector('h2');
+                const toggleText = document.querySelector('.toggle-text');
+                const button = document.querySelector('button');
+                
+                if (title.textContent === 'Your Journey Starts Here') {
+                    title.textContent = 'Join the Adventure';
+                    toggleText.innerHTML = 'Already have an account? <a href="#" onclick="toggleForm(event)">Sign In</a>';
+                    button.textContent = 'Sign Up';
+                } else {
+                    title.textContent = 'Your Journey Starts Here';
+                    toggleText.innerHTML = 'Don\'t have an account? <a href="#" onclick="toggleForm(event)">Sign Up</a>';
+                    button.textContent = 'Sign In';
+                }
+                
+                form.classList.remove('animate-out');
+            }, 300);
+        }
+    </script>
+</body>
+</html>
